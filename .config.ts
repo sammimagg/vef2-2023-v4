@@ -1,0 +1,1 @@
+export const API_URL = 'https://vef2-2023-v3-synilausn-production.up.railway.app/';
