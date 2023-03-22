@@ -11,28 +11,28 @@ async function getDepartments(){
     return data as any[];
 }
 
-export default async function DepartmentPage() {
+export default async function DepartmentsPage() {
     const departments = await getDepartments();
    
     return(
         <div>
             <h1>Departments</h1>
+            <CreateDepartment/>
             <section className={styles.grid}>
                 {departments?.map((department) => {
-                    return <Department key={department.id} department={department}/>
+                    return <Departments key={department.id} department={department}/>
                 })}
             </section>
-            <CreateDepartment/>
         </div>
     );
 }
-function Department({ department }: { department: { id: string, title: string, slug: string, description: string } }) {
+function Departments({ department }: { department: { id: string, title: string, slug: string, description: string } }) {
     const { id, title, slug, description } = department;
 
     return (
 
             <div className={styles.department}>
-                <Link href={`/departments/${slug}`}>
+                <Link href={`/department/${slug}`}>
                     <h2>{title}</h2>
                     <p>{description}</p>
                 </Link>

@@ -7,11 +7,8 @@ async function getCourse(departmentSlug: string) {
     return data as any[];
 }
 
-export default async function DepartmentPage({params}: any) {
+export default async function CoursesPage({params}: any) {
     const courses = await getCourse(params.slug);
-
-
-    // id, courseId, title ,units, semester, level, url
     return (
 
             <table>

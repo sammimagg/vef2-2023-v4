@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+
+
 export default function CreateDepartment() {
   const [title, setTitle] = useState('');
   const [description, setContent] = useState('');
@@ -25,6 +27,7 @@ export default function CreateDepartment() {
     setTitle('');
 
     router.refresh();
+
   }
 
   return (
