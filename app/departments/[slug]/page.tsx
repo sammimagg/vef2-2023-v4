@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Department } from "../../types";
 import Card from "../Card";
-import Form from "../Form";
+import UpdateDepartment from "../Form";
+
 
 async function getDepartment(slug: string): Promise<Department> {
   const res = await fetch(
@@ -34,7 +35,7 @@ export default function DepartmentPage({params,}: {params: { slug: string };}) {
     <div>
       <button onClick={toggleActive}>{active === "Card" ? "Form" : "Card"}</button>
       {active === "Card" && <Card department={department} />}
-      {active === "Form" && <Form department={department} />}
+      {active === "Form" && <UpdateDepartment department={department} />}
       <Link href={department._links.courses.href}>Courses</Link>
     </div>
   );

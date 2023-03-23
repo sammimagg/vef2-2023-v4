@@ -10,8 +10,9 @@ export default function CreateDepartment() {
   const [description, setContent] = useState('');
   const router = useRouter();
  
-  const create = async() => {
-    console.log(title, description)
+  const create = async(e: React.FormEvent) => {
+    e.preventDefault();
+
     await fetch('https://vef2-2023-v3-synilausn-production.up.railway.app/departments', {
       method: 'POST',
       headers: {
