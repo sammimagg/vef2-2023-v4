@@ -6,29 +6,58 @@
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
 }
-
-
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-
 html,
-body {
+.body {
   max-width: 100vw;
   overflow-x: hidden;
 }
 
-body {
-  background: #f7f7f7;
-}
-
 a {
-  color: inherit;
+  color: #3C3C3C;
   text-decoration: none;
 }
-
-
-
+p {
+  color: #3C3C3C;
+}
+h1, h2, h3, h4, h5 {
+  color: #3C3C3C;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: none;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: none;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  resize: none;
+}
+label{
+  font-size: 16px;
+  font-weight: 600;
+  color: #3C3C3C;
+}
+th {
+  text-align: left;
+}
+table {
+  width: 100%;
+}
+body{
+  height: 100%;
+}

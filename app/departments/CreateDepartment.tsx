@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-
-
 export default function CreateDepartment() {
   const [title, setTitle] = useState('');
   const [description, setContent] = useState('');
@@ -13,7 +11,7 @@ export default function CreateDepartment() {
   const create = async(e: React.FormEvent) => {
     e.preventDefault();
 
-    await fetch('https://vef2-2023-v3-synilausn-production.up.railway.app/departments', {
+    await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/departments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -23,7 +21,6 @@ export default function CreateDepartment() {
         "description": description,
       }),
     });
-  
     setContent('');
     setTitle('');
 

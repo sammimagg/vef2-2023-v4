@@ -30,13 +30,11 @@ function Departments({ department }: { department: { id: string, title: string, 
     const { id, title, slug, description } = department;
 
     return (
-
             <div className={styles.department}>
                 <Link href={`/departments/${slug}`}>
                     <h2>{title}</h2>
                     <p>{description}</p>
                 </Link>
             </div>
-
     )
-}
+}           

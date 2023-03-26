@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Department } from "../../types";
-import Card from "../Card";
-import UpdateDepartment from "../Form";
-
+import Card from "./DepartmentCard";
+import UpdateDepartment from "./EditDepartmentForm";
+import styles from "./page.module.css"
 
 async function getDepartment(slug: string): Promise<Department> {
   const res = await fetch(
@@ -14,29 +14,29 @@ async function getDepartment(slug: string): Promise<Department> {
   const data = await res.json();
   return data as Department;
 }
-
 export default function DepartmentPage({params,}: {params: { slug: string };}) {
   const { slug } = params;
-  const [active, setActive] = useState("Card");
+  const [active, setActive] = useState("Cancel");
   const [department, setDepartment] = useState<Department | null>(null);
 
   useEffect(() => {
     getDepartment(slug).then((data) => setDepartment(data));
   }, [slug]);
   const toggleActive = () => {
-    setActive((prevState) => (prevState === "Card" ? "Form" : "Card"));
+    setActive((prevState) => (prevState === "Cancel" ? "Edit" : "Cancel"));
   };
-
   if (!department) {
     return <div>Loading...</div>;
   }
-  console.log(department._links.self)
   return (
-    <div>
-      <button onClick={toggleActive}>{active === "Card" ? "Form" : "Card"}</button>
-      {active === "Card" && <Card department={department} />}
-      {active === "Form" && <UpdateDepartment department={department} />}
-      <Link href={department._links.courses.href}>Courses</Link>
+    <div className={styles.full}>
+      <div className={styles.card}>
+        <div className={styles.float_right}>
+          <button className={styles.transparent_button} onClick={toggleActive}>{active === "Cancel" ? "Edit" : "Cancel"}</button>
+        </div>
+          {active === "Cancel" && <Card department={department} />}
+          {active === "Edit" && <UpdateDepartment department={department} />}
+      </div>
     </div>
   );
 }

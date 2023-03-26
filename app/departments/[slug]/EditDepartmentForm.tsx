@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react"
-import { Department } from "../types"
+import { Department } from "../../types"
 import { useRouter } from 'next/navigation';
-
+import styles from "./page.module.css"
 
 export default function UpdateDepartment({ department }: { department: Department }) {
     const [title, setTitle] = useState(department.title);
@@ -10,8 +10,7 @@ export default function UpdateDepartment({ department }: { department: Departmen
     const router = useRouter();
     const update = async (e: React.FormEvent) => {
       e.preventDefault();
-      
-      const response = await fetch(`https://vef2-2023-v3-synilausn-production.up.railway.app/departments/${department.slug}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${department.slug}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -27,11 +26,30 @@ export default function UpdateDepartment({ department }: { department: Departmen
       setTitle('');
       router.push(`/departments/${updatedDepartment.slug}`);
     }
+    const deleteDepartment = async(e: { preventDefault: () => void; }) => {
+      e.preventDefault();
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/departments/${department.slug}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      if (response.status === 204) {
+        console.log('Department deleted successfully');
+      } else {
+        const deleteResponse = await response.json();
+        console.error('Error deleting department:', deleteResponse);
+        
+      }
+      router.push(`/`)
+    }
     
     return (
-        <form onSubmit={update}>
+      <div >
+        <form className={`${styles.inner_card} ${styles.row}`} onSubmit={update}>
             <label>Title</label>
             <input 
+                className={styles.input}
                 value={title} 
                 type="text" 
                 onChange={(e) => setTitle(e.target.value)}
@@ -41,7 +59,11 @@ export default function UpdateDepartment({ department }: { department: Departmen
                 value={description} 
                 onChange={(e) => setDescription(e.target.value)}
                 />
-            <button type="submit">Save</button> 
+            <button className={styles.button_save} type="submit">Save</button> 
         </form>
+        <div className={styles.float_right}>
+          <button onClick={deleteDepartment} className={`${styles.transparent_button} ${styles.button_delete}`}>Delete</button>
+        </div>
+      </div>  
     )
 }
