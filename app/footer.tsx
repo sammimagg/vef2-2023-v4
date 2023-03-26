@@ -2,7 +2,7 @@ import styles from './page.module.css'
 
 export default function Footer(){
     return( 
-        <div className={`${styles.rows} ${styles.blue_background} ${styles.center}`}>
+        <footer className={`${styles.rows} ${styles.blue_background} ${styles.center}`}>
             <div className={`${styles.columns} ${styles.center}`}>
                 <h2 className={styles.font_white}>Háskóli íslands</h2>
                 <p className={styles.font_white}>Sæmundargötu 2 </p>
@@ -21,6 +21,6 @@ export default function Footer(){
                 <p className={styles.font_white}>Háskólatorg 07:30-19:00</p>
                 <p className={styles.font_white}>Allir opnunartímar</p>
             </div>
-        </div>
+        </footer>
     )
 }

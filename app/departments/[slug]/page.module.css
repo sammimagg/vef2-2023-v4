@@ -1,11 +1,8 @@
 .card {
-    margin-top: 1em;
     background-color: #ffffff;
     filter: drop-shadow(0px 0px 40px rgb(117, 117, 117,0.25));    border-radius: 12px;
     border-top: 12px solid #10099f;
-    max-width: 700px;
-    width: 100%;
-    align-items: center;
+    margin:auto
 }
 
 .card p {
@@ -32,25 +29,9 @@
     display: flex;
     justify-content: right;
 }
-.row {
-    display: flex;
-    flex-direction: column;
-}
-.button_save {
-    height: 30px;
-    width: 100px;
-    background-color: transparent;
-    border-radius: 6px;
-    border: 1px solid #00faaf;
-    color: #00faaf;
-    font-weight: 600;
-}
 .button_delete {
     color: #FF7272;
     font-weight: 400;
     font-size: 18px;
     padding: 1em 3em 1em 3em !important;
-}
-.full {
-    min-height: 70vh;
 }

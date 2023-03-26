@@ -15,10 +15,10 @@ export default async function DepartmentsPage() {
     const departments = await getDepartments();
    
     return(
-        <div>
+        <div className={styles.grid}>
             <h1>Departments</h1>
             <CreateDepartment/>
-            <section className={styles.grid}>
+            <section className={styles.row}>
                 {departments?.map((department) => {
                     return <Departments key={department.id} department={department}/>
                 })}

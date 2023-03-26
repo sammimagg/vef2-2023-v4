@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Button from '../button';
 
 export default function CreateDepartment() {
   const [title, setTitle] = useState('');
@@ -42,9 +43,7 @@ export default function CreateDepartment() {
         value={description}
         onChange={(e) => setContent(e.target.value)}
       />
-      <button type="submit">
-        Create department
-      </button>
+      <Button label="Create" typeOf="submit" color="blue"/>
     </form>
   );
 }

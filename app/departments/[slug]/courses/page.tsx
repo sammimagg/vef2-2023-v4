@@ -41,7 +41,7 @@ function Course({course}:any) {
                 <td>{units}</td>
                 <td>{semester}</td>
                 <td>{level}</td>
-                <td><a href={url}>Slóð námskeiðs</a></td>
+                <td><a href={url}>link</a></td>
             </tr>
     );
 }

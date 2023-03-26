@@ -1,15 +1,14 @@
-.container {
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  max-width: 1200px;
-}
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(33%, auto));
-  width: var(--max-width);
-  max-width: 100%;
+  margin: 0 auto;
+  max-width: 1290px;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px; }
 .header {
   display: flex;
   justify-content: flex-start;

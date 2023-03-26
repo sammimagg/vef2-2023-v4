@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"
 import { Department } from "../../types"
 import { useRouter } from 'next/navigation';
 import styles from "./page.module.css"
+import Button from "../../button";
 
 export default function UpdateDepartment({ department }: { department: Department }) {
     const [title, setTitle] = useState(department.title);
@@ -41,7 +42,9 @@ export default function UpdateDepartment({ department }: { department: Departmen
         console.error('Error deleting department:', deleteResponse);
         
       }
+
       router.push(`/`)
+      router.refresh();
     }
     
     return (
@@ -59,7 +62,7 @@ export default function UpdateDepartment({ department }: { department: Departmen
                 value={description} 
                 onChange={(e) => setDescription(e.target.value)}
                 />
-            <button className={styles.button_save} type="submit">Save</button> 
+            <Button label="Save" typeOf="submit" color="green"/>
         </form>
         <div className={styles.float_right}>
           <button onClick={deleteDepartment} className={`${styles.transparent_button} ${styles.button_delete}`}>Delete</button>

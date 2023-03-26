@@ -29,7 +29,7 @@ export default function DepartmentPage({params,}: {params: { slug: string };}) {
     return <div>Loading...</div>;
   }
   return (
-    <div className={styles.full}>
+
       <div className={styles.card}>
         <div className={styles.float_right}>
           <button className={styles.transparent_button} onClick={toggleActive}>{active === "Cancel" ? "Edit" : "Cancel"}</button>
@@ -37,6 +37,6 @@ export default function DepartmentPage({params,}: {params: { slug: string };}) {
           {active === "Cancel" && <Card department={department} />}
           {active === "Edit" && <UpdateDepartment department={department} />}
       </div>
-    </div>
+
   );
 }

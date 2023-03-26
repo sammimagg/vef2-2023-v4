@@ -1,8 +1,4 @@
 
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-}
 .department {
     background-color: rgb(255, 255, 255);
     margin: 0.25em 0em 0.25em 0em;
